@@ -1,10 +1,35 @@
 Expectations := Object clone
 
+Object verify := method(
+	checkMessage := call argAt(0)
+	checkCode := call message code
+
+	if(checkMessage name == "==",
+		other := call sender doMessage(checkMessage argAt(0), call sender)
+
+		if(self == other,
+			return self
+		,
+			AssertionFailed raise(self asSimpleString .. " != " .. other asSimpleString .. ". " .. checkCode)
+		)
+	)
+
+	if(self doMessage(checkMessage, call sender),
+		return self
+	,
+		AssertionFailed raise(checkCode)
+	)
+)
+
+Object verifyType := method(anObject,
+  if(anObject isKindOf(anObject),
+    self
+  ,
+    AssertionFailed raise(self asSimpleString .. " != " .. anObject asSimpleString)
+  )
+)
+
 Block verifyException := method(exception,
   e := try(self call)
-  if(e isKindOf(exception),
-    return self
-  ,
-    AssertionFailed raise(exception asSimpleString .. " != " .. e asSimpleString)
-  )
+  e verifyType(exception)
 )
