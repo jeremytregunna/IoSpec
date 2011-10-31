@@ -17,6 +17,10 @@ describe("Object Fundamentals",
     ctx protos at(0) verify(== Object)
   )
 
+  it("removes all protos and raises an exception when receiving a message",
+    block(Object clone removeAllProtos clone) verifyException(Exception)
+  )
+
   it("tells whether or not a slot exists on the object, or any of its descendents",
     ctx hasSlot("test") verify(== true)
     ctx hasSlot("fake") verify(== false)
