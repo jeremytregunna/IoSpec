@@ -1,17 +1,4 @@
-
-describe(Message,
-  it("can create a new message",
-    Message clone isNil verify(not)
-  )
-
-  it("factory creates a new message",
-    message(a) isNil verify(not)
-  )
-
-  it("creates a message from a string",
-    Message clone fromString("a b") verify(compare(message(a b)))
-  )
-
+describe("Message Properties",
   it("has a name",
     message(a) name verify(== "a")
   )
@@ -61,15 +48,6 @@ describe(Message,
     message(a b) asString verify(== "a b")
   )
 
-  it("evaluates a message in a specific context",
-    o := Object clone do(a := 42)
-    message(a) doInContext(o) verify(== o a)
-  )
-
-  it("detects if we are at the end of the line",
-    message(a ; b) next isEndOfLine verify(== true)
-  )
-
   it("cachedResult is nil",
     message(a) cachedResult verify(== nil)
   )
@@ -81,5 +59,9 @@ describe(Message,
   it("sets a cached result",
     m := message(a) setCachedResult(42)
     doMessage(m) verify(== 42)
+  )
+
+  it("detects if we are at the end of the line",
+    message(a ; b) next isEndOfLine verify(== true)
   )
 )
