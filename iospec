@@ -32,7 +32,7 @@ BodyContext := Object clone do(
 	newSlot("teardownMessage", message(nil))
 	newSlot("parent", nil)
 	newSlot("bodyContextName", nil)
-  newSlot("quiet", false)
+  newSlot("quiet", true)
 
 	setup := method(
 		setupMessage = call argAt(0)
@@ -106,12 +106,12 @@ BodyContext := Object clone do(
 
 exampleCount := 0
 failureErrors := list
-quiet := false
+quiet := true
 
 args := System args
-if(args sort at(0) == "-q",
+if(args sort at(0) == "-v",
   args removeFirst
-  quiet = true
+  quiet = false
 )
 
 if(System args size > 1,
