@@ -30,6 +30,6 @@ describe("Object Fundamentals",
 
   it("is able to remove a slot from an object",
     ctx removeSlot("test")
-    ctx hasSlot("test") verify(== false)
+    ctx hasLocalSlot("test") verify(== false)
   )
 )
