@@ -12,6 +12,12 @@ Steve and I have talked about this project in brief, and we're both ok with taki
 2. Test the required APIs. This won't include any addons, for instance as they're not part of the language.
 3. Most important, this should function across implementations.
 
+## Contributing
+
+A few things to note. We use a primitive testing tool which is a fork of [Jonathan Wright's iospec2](https://github.com/quag/iospec2). If you want to help us build on that, awesome! We could use some help building up our table of expectations.
+
+If you instead (or in addition to) want to help us build up the language spec, then that'd be great. The filename convention is `thingYoureTesting-spec.io`. Anything else and it won't be picked up by the automatic runner (feel free to improve that if you want too). Look at other specs for tips on how to write specs. If you want some more expressive power, or things like mocks, we'll need to build those into the testing tool. Send pull requests when you run into those and fix them.
+
 ## License
 
 This specification is covered by the MIT license, which allows permissive use of the code. By contributing anything to this repository, you are implicitly agreeing to be bound by those conditions, and grant others permission to use your submissions under those terms, irrevokably.
