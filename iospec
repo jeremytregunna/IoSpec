@@ -1,7 +1,11 @@
 #!/usr/bin/env io
 
+Importer addSearchPath("lib")
+
 IoSpec := Object clone do(
   version := "0.1.0"
+
+  Expectations
 )
 
 // What else should we do here? If it's not defined, we define it to be our current version. Probably better than nothing.
