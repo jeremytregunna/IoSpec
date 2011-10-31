@@ -19,4 +19,9 @@ describe("Block Call",
     blk := block(call evalArgAt(0))
     blk call(1) verify(== 1)
   )
+
+  it("activates when called by name when the activatable bit is set",
+    blk := block(1) setIsActivatable(true)
+    blk verify(== 1)
+  )
 )
