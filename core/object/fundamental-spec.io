@@ -12,6 +12,11 @@ describe("Object Fundamentals",
     ctx getSlot("fake") verify(== nil)
   )
 
+  it("has the right object as its proto",
+    ctx proto verify(== Object)
+    ctx protos at(0) verify(== Object)
+  )
+
   it("tells whether or not a slot exists on the object, or any of its descendents",
     ctx hasSlot("test") verify(== true)
     ctx hasSlot("fake") verify(== false)
