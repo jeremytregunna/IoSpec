@@ -33,3 +33,12 @@ Block verifyException := method(exception,
   e := try(self call)
   e verifyType(exception)
 )
+
+Object shouldReceive := method(
+  name := call argAt(0) name
+  if(self getSlot(name),
+    self
+  ,
+    AssertionFailed raise(self asSimpleString .. " does not respond to '" .. name .. "'")
+  )
+)
