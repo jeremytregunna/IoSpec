@@ -89,8 +89,10 @@ BodyContext := Object clone do(
 		)
 
     bodyContext setSlot("itDependsOnVersion",
-      method(version, shouldName,
-        if(System iospecVersion == version,
+      method(
+        versionPredicate := call argAt(0)
+        shouldName := call evalArgAt(1)
+        if(System iospecVersion doMessage(versionPredicate),
           self performWithArgList("it", list(shouldName, call evalArgAt(2)))
         )
       )
