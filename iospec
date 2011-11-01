@@ -98,11 +98,11 @@ BodyContext := Object clone do(
 			m = m next
 		)
 
-		if(hasTests,
+		if(hasTests and quiet not,
 			writeln(bodyContext bodyContextName)
 		)
 		bodyMessage ?doInContext(bodyContext)
-		if(hasTests,
+		if(hasTests and quiet not,
 			writeln
 		)
 	)
@@ -134,7 +134,7 @@ time := Date cpuSecondsToRun(
 )
 
 pendingSpecs foreach(i, pending,
-  "Pending #{i + 1}: #{pending}" interpolate println
+  "\n\nPending #{i + 1}: #{pending}\n" interpolate println
 )
 
 failureErrors foreach(i, error,
