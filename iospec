@@ -96,7 +96,7 @@ BodyContext := Object clone do(
 		)
 		bodyMessage ?doInContext(bodyContext)
 		if(hasTests,
-			writeln("\n")
+			writeln
 		)
 	)
 )
