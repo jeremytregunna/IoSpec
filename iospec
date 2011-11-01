@@ -143,6 +143,6 @@ failureErrors foreach(i, error,
 )
 failureCount := failureErrors size
 
-writeln("Finished in ", time, " seconds")
+writeln("\nFinished in ", time, " seconds")
 writeln
 writeln(if(specs size == 1, "", specs size .. " specs, "), exampleCount, if(exampleCount == 1, " example, ", " examples, "), failureCount, if(failureCount == 1, " failure,", " failures,"), if(pendingSpecs size == 1, " 1 pending", pendingSpecs size .. " pending"))
