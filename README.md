@@ -6,6 +6,10 @@ This project aims to build a complete executable specification of the [Io Progra
 
 Steve and I have talked about this project in brief, and we're both ok with taking it in this direction. More details will be forthcoming as we pick our testing framework, and start writing the tests. In general, a few things we want to do.
 
+## Current Version
+
+0.1.0 is the latest version of the specification.
+
 ## Goals
 
 1. Test the core semantics of the language. Things like message sending, argument handling, exceptions, etc.
