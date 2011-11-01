@@ -64,9 +64,9 @@ BodyContext := Object clone do(
 				)
 				if(e,
 					failureErrors append(e)
-          quiet ifTrue("F" print) ifFalse(" - #{shouldName} [Error #{failureErrors size}]" interpolate println)
+          quiet ifTrue(write("F"); File standardOutput flush) ifFalse(" - #{shouldName} [Error #{failureErrors size}]" interpolate println)
 				,
-          quiet ifTrue("." print) ifFalse(" - #{shouldName}" interpolate println)
+          quiet ifTrue(write("."); File standardOutput flush) ifFalse(" - #{shouldName}" interpolate println)
 				)
 			)
 		)
