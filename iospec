@@ -10,6 +10,7 @@ IoSpec := Object clone do(
 
 // What else should we do here? If it's not defined, we define it to be our current version. Probably better than nothing.
 if(System getSlot("iospecVersion") isNil,
+  "WARNING: Your IoVM does not understand iospecVersion, defaulting to current IoSpec version." println
   System iospecVersion := IoSpec version
 )
 
