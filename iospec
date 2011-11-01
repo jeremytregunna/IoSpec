@@ -127,7 +127,7 @@ if(System args size > 1,
 )
 
 writeln
-time := Date cpuSecondsToRun(
+time := Date secondsToRun(
 	specs foreach(spec,
 		BodyContext clone setQuiet(quiet) doFile(spec)
 	)
