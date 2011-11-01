@@ -132,10 +132,12 @@ time := Date secondsToRun(
 		BodyContext clone setQuiet(quiet) doFile(spec)
 	)
 )
+writeln("\n")
 
 pendingSpecs foreach(i, pending,
-  "\n\nPending #{i + 1}: #{pending}\n" interpolate println
+  "Pending #{i + 1}: #{pending}" interpolate println
 )
+writeln
 
 failureErrors foreach(i, error,
 	write("Error ", i + 1, ":")
