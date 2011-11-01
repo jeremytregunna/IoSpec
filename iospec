@@ -81,6 +81,13 @@ BodyContext := Object clone do(
       )
     )
 
+    bodyContext setSlot("pending",
+      method(str,
+        pendingSpecs append(str)
+        quiet ifTrue("*" print) ifFalse(" - #{str} [Pending #{pendingSpecs size}]" interpolate println)
+      )
+    )
+
 		hasTests := false
 		m := bodyMessage
 		while(m != nil,
@@ -104,6 +111,7 @@ BodyContext := Object clone do(
 
 exampleCount := 0
 failureErrors := list
+pendingSpecs := list
 quiet := true
 
 args := System args
@@ -125,6 +133,10 @@ time := Date cpuSecondsToRun(
 	)
 )
 
+pendingSpecs foreach(i, pending,
+  "Pending #{i + 1}: #{pending}" interpolate println
+)
+
 failureErrors foreach(i, error,
 	write("Error ", i + 1, ":")
 	error showStack
@@ -133,4 +145,4 @@ failureCount := failureErrors size
 
 writeln("Finished in ", time, " seconds")
 writeln
-writeln(if(specs size == 1, "", specs size .. " specs, "), exampleCount, if(exampleCount == 1, " example, ", " examples, "), failureCount, if(failureCount == 1, " failure", " failures"))
+writeln(if(specs size == 1, "", specs size .. " specs, "), exampleCount, if(exampleCount == 1, " example, ", " examples, "), failureCount, if(failureCount == 1, " failure,", " failures,"), if(pendingSpecs size == 1, " 1 pending", pendingSpecs size .. " pending"))
