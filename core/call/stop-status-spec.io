@@ -18,4 +18,12 @@ describe("Call Stop Status",
       call setStopStatus(Normal)
     ) call verifyType(Normal)
   )
+
+  it("resets the current stop status to normal",
+    block(
+      // First so we know it's a dirty value
+      call setStopStatus(Break)
+      call resetStopStatus
+    ) call verifyType(Normal)
+  )
 )
