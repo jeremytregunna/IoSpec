@@ -15,14 +15,6 @@ describe("Call Arguments",
     result name verify(== "b")
   )
 
-  it("evaluates all its arguments",
-    block(call evalArgs) call(1, 2) verify(== list(1, 2))
-  )
-
-  it("evalutes an arbitrary argument only",
-    block(call evalArgAt(1)) call("unevaluated", "evaluated") verify(== "evaluated")
-  )
-
   it("our message is valid",
     block(call message) call name verify(== "call")
     x := method(call message)
