@@ -17,6 +17,17 @@ describe("Object Fundamentals",
     ctx protos at(0) verify(== Object)
   )
 
+  it("finds the right slot on a proto",
+    a := ctx clone
+    a test verify(== 42)
+  )
+
+  it("finds a slot on a different proto, one that isn't the first proto",
+    a := ctx clone
+    a appendProto(Object clone do(x := 23))
+    a x verify(== 23)
+  )
+
   it("removes all protos and raises an exception when receiving a message",
     block(Object clone removeAllProtos clone) verifyException(Exception)
   )
