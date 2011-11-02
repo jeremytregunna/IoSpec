@@ -21,3 +21,15 @@ Injectable := Object clone do(
 		self
     )
 )
+
+Mock := Injectable clone do(
+	mocking := method(target,
+		new := self clone
+		target isKindOf(Sequence) ifTrue(
+			new type := target
+		) ifFalse(
+			new prependProto(target)
+		)
+		new	
+	)
+)
