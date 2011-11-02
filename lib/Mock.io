@@ -12,3 +12,12 @@ InjectionLayer := Object clone do(
 		)
 	)
 	
+Injectable := Object clone do(	
+	injectInto := method(target,
+		target proto hasLocalSlot("injectionLayerBit") ifFalse(
+			InjectionLayer on(target)
+		)
+		target proto setSlot(self type, self)
+		self
+    )
+)
